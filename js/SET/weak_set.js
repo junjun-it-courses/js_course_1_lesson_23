@@ -6,25 +6,27 @@
 // и не является перебираемой.
 // Объект в WeakSet содержит только уникальные значения.
 
-let visitedSet = new WeakSet();
+// let visitedSet = new WeakSet();
+//
+// let john = { name: "John" };
+// let pete = { name: "Pete" };
+// let mary = { name: "Mary" };
+//
+// visitedSet.add(john); // John заходил к нам
+// visitedSet.add(pete); // потом Pete
+// visitedSet.add(john); // John снова
 
-let john = { name: "John" };
-let pete = { name: "Pete" };
-let mary = { name: "Mary" };
-
-visitedSet.add(john); // John заходил к нам
-visitedSet.add(pete); // потом Pete
-visitedSet.add(john); // John снова
+// console.log(visitedSet);
 
 // visitedSet сейчас содержит двух пользователей
 
 // проверим, заходил ли John?
-alert(visitedSet.has(john)); // true
-
+// console.log(visitedSet.has(john)); // true
+//
 // проверим, заходила ли Mary?
-alert(visitedSet.has(mary)); // false
+// console.log(visitedSet.has(mary)); // false
 
-john = null;
-console.log(visitedSet)
+// john = null;
+// console.log(visitedSet)
 
 // структура данных visitedSet будет очищена автоматически

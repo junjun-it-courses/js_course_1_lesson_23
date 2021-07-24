@@ -2,57 +2,86 @@
 // в том, что Map позволяет использовать ключи любого типа.
 // https://learn.javascript.ru/map-set#map
 
+// let obj = {
+//     key: 'value',
+//     [2 + 2]: 3,
+//     [`asdas ${2 + 2}`] : 20,
+//     func(a) {
+//         console.log(a);
+//         return a;
+//     }
+// }
+//
+// console.log(obj);
+
 
 // Если Object может использовать только строковые ключи (названия) свойств и методов
 // то в Map ключем (названием) может быть и объект и функция - не только строка!
 
 // let myMap = new Map();
 //
+// // console.log(myMap)
+//
 // let keyString = "строка";
-// let keyObj = {};
+// let keyObj = {name: 'John'};
 // let keyFunc = function() {};
 //
 // // устанавливаем значения
 // myMap.set(keyString, "значение, связанное со 'строка'");
 // myMap.set(keyObj, "значение, связанное с keyObj");
 // myMap.set(keyFunc, "значение, связанное с keyFunc");
-//
+
 // myMap.size; // 3
 //
+// console.log(myMap)
+
 // // получаем значения
 // myMap.get(keyString);    // "значение, связанное со 'строка'"
-// myMap.get(keyObj);       // "значение, связанное с keyObj"
+// console.log(myMap.get(keyObj));       // "значение, связанное с keyObj"
 // myMap.get(keyFunc);      // "значение, связанное с keyFunc"
 
 
 // Map может использовать объекты в качестве ключей.
 
-// let john = { name: "John" };
-//
+// let john = { id: 1, name: "John" };
 // // сохраним количество посещений для каждого пользователя
+//
 // let visitsCountMap = new Map();
 // // объект john - это ключ для значения в объекте Map
 // visitsCountMap.set(john, 123);
-// alert(visitsCountMap.get(john)); // 123
+// console.log(visitsCountMap)
+//
+// console.log(visitsCountMap.get(john)); // 123
 
 
 // и еще пример
+
 // let usersVisits = new Map();
-// const usersArr = [{name: 'Vlad'}, {name: 'Alex'}, {name: 'Helen'}];
+// const usersArr = [{id:1, name: 'Vlad'}, {id:2, name: 'Alex'}, {id: 3, name: 'Helen'}];
 //
 // usersArr.forEach(item => {
 //         const randomNum = Math.floor(Math.random() * 10);
 //         usersVisits.set(item, randomNum);
 //     }
 // )
-//
+
 // for(let i = 0; i < usersArr.length; i++) {
-//     console.log(usersVisits.get(usersArr[i]));
+//     console.log(usersArr[i], usersVisits.get(usersArr[i]))
 // }
+
+// console.log(usersVisits.get(usersArr[1]));
+
+// можно и так
+
+// usersArr
+//     .filter(item => item.id % 2 !== 0)
+//     .forEach(item => {
+//         console.log(item, usersVisits.get(item));
+//     })
 
 
 // можно наполнить Map при вызове конструктора, если в него передать массив с массивами
-// в которыз под индексом 0 ключ, а под индексом 1 значение, они так и будут
+// в который под индексом 0 ключ, а под индексом 1 значение, они так и будут
 // записаны в Map
 
 // let arr = [
@@ -92,7 +121,7 @@
 // map.set({name: 'vlad'}, "str1")
 //    .set([1, 2, 3], "num1")
 //    .set(true, "bool1");
-
+//
 // console.log(map);
 
 
@@ -103,35 +132,37 @@
 //     map.entries() – возвращает итерируемый объект по парам вида [ключ, значение],
 //     этот вариант используется по умолчанию в for..of.
 
-// let recipeMap = new Map([
-//     ["огурец", 500],
-//     ["помидор", 350],
-//     ["лук",    50]
-// ]);
+let recipeMap = new Map([
+    ["огурец", 500],
+    ["помидор", 350],
+    ["лук",    50]
+]);
 
 // console.log(recipeMap)              // получаем сам объект map
 // console.log(recipeMap.keys())       // получаем ключи
 // console.log(recipeMap.values())     // получаем значение
 // console.log(recipeMap.entries())    // получаем пары ключ - значение
 
-// // перебор по ключам (овощи)
+
+// перебор по ключам (овощи)
 // for (let vegetable of recipeMap.keys()) {
-//     alert(vegetable); // огурец, помидор, лук
+//     console.log(vegetable); // огурец, помидор, лук
 // }
-//
-// // перебор по значениям (числа)
+
+// перебор по значениям (числа)
 // for (let amount of recipeMap.values()) {
-//     alert(amount); // 500, 350, 50
+//     console.log(amount); // 500, 350, 50
 // }
-//
-// // перебор по элементам в формате [ключ, значение]
+
+// перебор по элементам в формате [ключ, значение]
 // for (let entry of recipeMap) { // то же самое, что и recipeMap.entries()
-//     alert(entry); // огурец,500 (и так далее)
+//     console.log(entry); // огурец,500 (и так далее)
 // }
-//
-// // Также Map имеет свой личный метод forEach
-//
+
+
+// Также Map имеет свой личный метод forEach
+
 // recipeMap.forEach((value, key, map) => {
 //     console.log(`${key}: ${value}`); // огурец: 500 и так далее
 // });
-//
+

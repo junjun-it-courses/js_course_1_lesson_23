@@ -11,7 +11,7 @@
 
 // или
 
-// const exampleArr = [1, 'string', null, NaN, undefined, {name: 'Joui'}];
+// const exampleArr = [1, 'string', null, NaN, undefined, {name: 'Joui'}, 'string', 1];
 // let newSet2 = new Set(exampleArr);
 // console.log(newSet2)
 
@@ -31,6 +31,7 @@
 
 // let mySet1 = new Set();
 // mySet1.add(10);
+// mySet1.add(10);
 // console.log(mySet1);
 
 // так как метод .add(value) возвращает объект обновленный Set в который сразу-же
@@ -49,7 +50,8 @@
 // Если значение былл удалено метод вернет true если нет то false
 
 // let mySet3 = new Set([1, 2, 'John', true, false]);
-// mySet3.delete('John');
+// mySet3.delete('John'); // true
+// console.log(mySet3.delete(200)); // false
 // console.log(mySet3)
 
 
@@ -59,8 +61,8 @@
 
 // let mySet4 = new Set([1, 2, 3]);
 // console.log(mySet4)
-// console.log(mySet4.has(1));
-// console.log(mySet4.has(4));
+// console.log(1, mySet4.has(1));
+// console.log(4, mySet4.has(4));
 
 
 // Для полной очистки текущего Set объекта используем метод .clear()
@@ -92,7 +94,7 @@
 //     console.log(value);
 // }
 
-// // то же самое с forEach:
+// то же самое с forEach:
 
 // mySet7.forEach((value, valueAgain, set) => {
 //     console.log(value);
@@ -101,25 +103,25 @@
 // Доп методы
 
 // Set имеет те же встроенные методы, что и Map:
-//
+
 //     set.values() – возвращает перебираемый объект для значений,
 //     set.keys() – то же самое, что и set.values(), присутствует
 //     для обратной совместимости с Map,
 //     set.entries() – возвращает перебираемый объект для пар
 //     вида [значение, значение], присутствует для обратной совместимости с Map.
 
-let mySet8 = new Set([1, 2, 3, 4, 5, 6, 7]);
+// let mySet8 = new Set([1, 2, 3, 4, 5, 6, 7]);
 
 // возвращает итератор
-let setValuesIterator = mySet8.values()
+// let setValuesIterator = mySet8.values()
 // console.log(setValuesIterator);
 
 
 //А значит может работать с обычными циклами например while
 
-// console.log(setValuesIterator.next())
-// console.log(setValuesIterator.next())
-// console.log(setValuesIterator.next())
+// console.log(setValuesIterator.next());
+// console.log(setValuesIterator.next());
+// console.log(setValuesIterator.next());
 
 // while (true) {
 //     let currentSetElement = setValuesIterator.next();
